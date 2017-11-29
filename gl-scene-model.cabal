@@ -16,13 +16,37 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     Scene.Model
+                       Scene.Model.Parser
   build-depends:       base >= 4.7 && < 5
+                     , bytestring
                      , gl-scene
+                     , hashable
+                     , linear
                      , megaparsec
+                     , scientific
+                     , vector
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+
+test-suite gl-scene-model-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Main.hs
+  other-modules:       ModelTests
+  build-depends:       base >= 4.7 && < 5
+                     , gl-scene-model
+                     , bytestring
+                     , flow
+                     , HUnit
+                     , HUnit-approx
+                     , linear
+                     , megaparsec
+                     , test-framework
+                     , test-framework-hunit
                      , vector
   default-language:    Haskell2010
   ghc-options:         -Wall
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/gl-scene-model
+  location: https://github.com/psandahl/gl-scene-model
